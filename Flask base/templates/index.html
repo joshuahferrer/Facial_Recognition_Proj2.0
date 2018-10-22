@@ -4,11 +4,14 @@
   </head>
   <body>
        <form method="post" action="/">
-           <h1>Video Streaming Demonstration</h1>
-           <img src="{{ url_for('calc') }}">
+           <h1 align="middle">{{ message }}</h1>
+          <center>
+           <img align="middle" src="{{ url_for('calc') }}" >
+          
+          </br>
            <button type="button" calss = "pic"> take picture </button>
            <a href="{{url_for('found') }}"> Continue</a>
-
+         </center>
       </form>
   </body>
 </html>
