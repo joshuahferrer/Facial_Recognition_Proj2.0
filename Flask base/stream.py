@@ -5,6 +5,7 @@ import sys
 import numpy
 import datetime
 import time
+import os 
 
 # The amount of time to wait when a face is found before taking a picture
 wait_time = 5
@@ -13,6 +14,11 @@ wait_time = 5
 image_padding = 30
 image_x = 640
 image_y = 480
+
+current_directory = os.getcwd()
+final_directory = os.path.join(current_directory, r'pictures')
+if not os.path.exists(final_directory):
+   os.makedirs(final_directory)
 
 # Face classifier from OpenCV
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
@@ -129,7 +135,7 @@ def not_found():
 
 def save_Picture(image):
     filename = "test.jpg"
-    cv2.imwrite(filename=filename, img=image)
+    cv2.imwrite(os.path.join(final_directory , filename), img=image)
 
 if __name__ == '__main__':
 	app.run(host='localhost', debug=True, threaded=True)
