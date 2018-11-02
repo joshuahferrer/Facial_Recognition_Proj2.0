@@ -135,7 +135,7 @@ def not_found():
        return render_template('Not_Found.html')
 
 if found: 
-   def itIsFounf():
+   def itIsFound():
        return redirect(url_for('found'))
 else: 
    def itIsNotFound():
