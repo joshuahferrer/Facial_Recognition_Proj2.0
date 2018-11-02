@@ -141,7 +141,6 @@ else:
    def itIsNotFound():
        return redirect(url_for('not_found'))
 	
-else:
 
 def save_Picture(image):
     filename = "test.jpg"
