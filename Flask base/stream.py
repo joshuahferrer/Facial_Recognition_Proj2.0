@@ -127,14 +127,21 @@ def calc():
      return Response(get_frame(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
-if found:
-   @app.route('/found')
-   def found():
+@app.route('/found')
+def found():
        return render_template('Found.html')
-else:  
-   @app.route('/not_found')
-   def not_found():
+@app.route('/not_found')
+def not_found():
        return render_template('Not_Found.html')
+
+if found: 
+   def itIsFounf():
+       return redirect(url_for('found'))
+else: 
+   def itIsNotFound():
+       return redirect(url_for('not_found'))
+	
+else:
 
 def save_Picture(image):
     filename = "test.jpg"
