@@ -7,6 +7,7 @@ import datetime
 import time
 import os 
 
+found = None
 # The amount of time to wait when a face is found before taking a picture
 wait_time = 5
 
@@ -125,13 +126,15 @@ def calc():
 	# get_frame will constantly return a string of values
      return Response(get_frame(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/found')
-def found():
-    return render_template('Found.html')
 
-@app.route('/not_found')
-def not_found():
-    return render_template('Not_Found.html')
+if found:
+   @app.route('/found')
+   def found():
+       return render_template('Found.html')
+else:  
+   @app.route('/not_found')
+   def not_found():
+       return render_template('Not_Found.html')
 
 def save_Picture(image):
     filename = "test.jpg"
